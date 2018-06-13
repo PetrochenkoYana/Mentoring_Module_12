@@ -1,0 +1,13 @@
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\Fibonacci__Sequence.dll.config
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\Fibonacci__Sequence.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\Fibonacci__Sequence.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\EntityFramework.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\StackExchange.Redis.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\EntityFramework.xml
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\StackExchange.Redis.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\bin\Debug\StackExchange.Redis.xml
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\obj\Debug\Fibonacci__Sequence.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\obj\Debug\Fibonacci__Sequence.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Fibonacci__Sequence\obj\Debug\Fibonacci__Sequence.csprojResolveAssemblyReference.cache

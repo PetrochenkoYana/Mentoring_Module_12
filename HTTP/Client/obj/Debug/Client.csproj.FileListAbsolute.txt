@@ -1,0 +1,6 @@
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Client\bin\Debug\Client.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Client\bin\Debug\Client.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Client\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Client\obj\Debug\Client.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Client\obj\Debug\Client.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache

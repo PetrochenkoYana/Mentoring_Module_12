@@ -1,0 +1,10 @@
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\bin\Debug\NorthwindLibrary.dll.config
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\bin\Debug\NorthwindLibrary.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\bin\Debug\NorthwindLibrary.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\bin\Debug\EntityFramework.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\bin\Debug\EntityFramework.xml
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\obj\Debug\NorthwindLibrary.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\obj\Debug\NorthwindLibrary.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\obj\Debug\NorthwindLibrary.csprojResolveAssemblyReference.cache
