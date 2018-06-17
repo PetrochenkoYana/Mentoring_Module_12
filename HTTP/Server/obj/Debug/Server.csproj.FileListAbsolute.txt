@@ -17,4 +17,3 @@ C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Ser
 C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Server\obj\Debug\Server.dll
 C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Server\obj\Debug\Server.pdb
-C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\HTTP\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

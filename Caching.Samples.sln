@@ -11,13 +11,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "HTTP\Client\Clien
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{217A558F-69D5-4C38-97D3-DC5313DF8301}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CachingSolutionsSamples", "Application\CachingSolutionsSamples\CachingSolutionsSamples.csproj", "{A4A4F6AE-04DA-439D-BFAD-BC373D9C869C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesCache_Tests", "Application\CachingSolutionsSamples\EntitiesCache_Tests.csproj", "{A4A4F6AE-04DA-439D-BFAD-BC373D9C869C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindLibrary", "Application\NorthwindLibrary\NorthwindLibrary.csproj", "{83072721-060E-4738-9ABD-7711C4F07ED2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci__Sequence", "Fibonacci__Sequence\Fibonacci__Sequence.csproj", "{A7A12FB9-6B11-48CB-B333-5A9469904A98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci__Sequence_Tests", "Fibonacci__Sequence_Tests\Fibonacci__Sequence_Tests.csproj", "{1A2CF7FB-4B34-4ADF-B06E-D4A7781EBF1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheLibrary", "CacheLibrary\CacheLibrary.csproj", "{AA1ADCD1-9681-4BC8-8BB9-BA70B4644418}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesCache", "EntitiesCache\EntitiesCache.csproj", "{C8F6A6B9-B64C-4590-9707-DA43A769D072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CachePolicyService", "CachePolicyService\CachePolicyService.csproj", "{A63E60EF-AD75-422C-AE36-72B6009EAAF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +55,18 @@ Global
 		{1A2CF7FB-4B34-4ADF-B06E-D4A7781EBF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A2CF7FB-4B34-4ADF-B06E-D4A7781EBF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A2CF7FB-4B34-4ADF-B06E-D4A7781EBF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA1ADCD1-9681-4BC8-8BB9-BA70B4644418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA1ADCD1-9681-4BC8-8BB9-BA70B4644418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA1ADCD1-9681-4BC8-8BB9-BA70B4644418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA1ADCD1-9681-4BC8-8BB9-BA70B4644418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8F6A6B9-B64C-4590-9707-DA43A769D072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8F6A6B9-B64C-4590-9707-DA43A769D072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8F6A6B9-B64C-4590-9707-DA43A769D072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8F6A6B9-B64C-4590-9707-DA43A769D072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A63E60EF-AD75-422C-AE36-72B6009EAAF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A63E60EF-AD75-422C-AE36-72B6009EAAF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A63E60EF-AD75-422C-AE36-72B6009EAAF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A63E60EF-AD75-422C-AE36-72B6009EAAF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using CacheLibrary;
 using NorthwindLibrary;
 
-namespace CachingSolutionsSamples
+namespace EntitiesCache
 {
     public class EntitiesManager<T> where T : class
     {
-        private IEntitiesCache<T> cache;
+        private ICache<IEnumerable<T>> cache;
 
-        public EntitiesManager(IEntitiesCache<T> cache)
+        public EntitiesManager(ICache<IEnumerable<T>> cache)
         {
             this.cache = cache;
         }
@@ -33,7 +32,7 @@ namespace CachingSolutionsSamples
                     dbContext.Configuration.LazyLoadingEnabled = false;
                     dbContext.Configuration.ProxyCreationEnabled = false;
                     entities = dbContext.Set<T>().ToList();
-                    cache.Set(cacheKey, entities, DateTimeOffset.Now.AddMilliseconds(300));
+                    cache.Set(cacheKey, entities);
                 }
             }
 

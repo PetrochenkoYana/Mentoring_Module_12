@@ -1,0 +1,4 @@
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CachePolicyService\bin\Debug\CachePolicyService.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CachePolicyService\bin\Debug\CachePolicyService.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CachePolicyService\obj\Debug\CachePolicyService.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CachePolicyService\obj\Debug\CachePolicyService.pdb

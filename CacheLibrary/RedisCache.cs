@@ -1,54 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using NorthwindLibrary;
+using CachePolicyService;
 using StackExchange.Redis;
 
-namespace CachingSolutionsSamples
+namespace CacheLibrary
 {
-    class EntitiesRedisCache<T> : IEntitiesCache<T>
+    public class RedisCache<T> : ICache<T>
     {
         private ConnectionMultiplexer redisConnection;
-        string prefix = "Cache_Categories";
+        string prefix = "Cache_by_";
 
         DataContractSerializer serializer = new DataContractSerializer(
-            typeof(IEnumerable<T>));
+            typeof(T));
 
-        public EntitiesRedisCache(string hostName)
+        public ICachePolicyService CachePolicy { get; set; }
+
+        public RedisCache(string hostName, ICachePolicyService cachePolicyService)
         {
             redisConnection = ConnectionMultiplexer.Connect(hostName);
+            CachePolicy = cachePolicyService;
         }
 
-        public IEnumerable<T> Get(string key)
+        public T Get(string key)
         {
+
             var db = redisConnection.GetDatabase();
             byte[] s = db.StringGet(prefix + key);
             if (s == null)
-                return null;
+                return default(T);
 
-            return (IEnumerable<T>)serializer
+            return (T)serializer
                 .ReadObject(new MemoryStream(s));
 
         }
 
-        public void Set(string key, IEnumerable<T> entities, DateTimeOffset dateTime)
+        public void Set(string key, T entities)
         {
             var db = redisConnection.GetDatabase();
             var cacheKey = prefix + key;
 
             if (entities == null)
             {
-                db.StringSet(cacheKey, RedisValue.Null);
+                db.StringSet(cacheKey, RedisValue.Null, CachePolicy.GetCachePolicy().AbsoluteExpiration - DateTime.Now);
             }
             else
             {
                 var stream = new MemoryStream();
                 serializer.WriteObject(stream, entities);
-                db.StringSet(cacheKey, stream.ToArray(), TimeSpan.FromMilliseconds((DateTimeOffset.Now - dateTime).TotalMilliseconds));
+                db.StringSet(cacheKey, stream.ToArray(), CachePolicy.GetCachePolicy().AbsoluteExpiration - DateTime.Now);
             }
         }
     }

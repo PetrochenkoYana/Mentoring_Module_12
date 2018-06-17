@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CacheLibrary;
 
 namespace Fibonacci__Sequence
 {
@@ -13,9 +10,9 @@ namespace Fibonacci__Sequence
 
     public class Fibonacci : IFibonacci_Sequence
     {
-        public ICache Cache { get; private set; }
+        public ICache<int> Cache { get; private set; }
 
-        public Fibonacci(ICache cache)
+        public Fibonacci(ICache<int> cache)
         {
             Cache = cache;
         }
@@ -41,7 +38,7 @@ namespace Fibonacci__Sequence
                     return 1;
                 default:
                     var num = GetByIndex((index - 2)) + GetByIndex(index - 1);
-                    Cache.Set(index.ToString(), num);
+                    Cache.Set(index.ToString(), num );
                     return num;
             }
         }

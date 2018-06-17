@@ -1,102 +1,187 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Caching;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NorthwindLibrary;
-using Moq;
-using System.Data.SqlClient;
-using System.Net.Sockets;
+using System.Reflection;
+using CacheLibrary;
+using EntitiesCache;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+using CachePolicyService;
+using System.Configuration;
 
-namespace CachingSolutionsSamples
+namespace EntitiesCache_Tests
 {
     [TestClass]
     public class EntitiesCacheTests
     {
+        private ICachePolicyService cachePolicyService;
+
+        [TestInitialize]
+        public void GetCachePolicy()
+        {
+            cachePolicyService = new CachePolicyService.CachePolicyService();
+        }
 
         [TestMethod]
         public void CategoriesUsingMemoryCache()
         {
-            var entityManager = new EntitiesManager<Category>((new EntitiesMemoryCache<Category>()));
+            //Arrange
+            var entityManager = new EntitiesManager<Category>(new MemoryCache<IEnumerable<Category>>(cachePolicyService));
 
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(entityManager.GetEntities().Count());
-                Thread.Sleep(100);
-            }
+            FieldInfo cacheField = entityManager.GetType().GetField("cache", BindingFlags.NonPublic | BindingFlags.Instance);
+            object cacheFieldValue = cacheField.GetValue(entityManager);
+            MethodInfo method = cacheFieldValue.GetType().GetMethod("Get", new Type[] { typeof(string) });
+
+            //Act
+            var entities = entityManager.GetEntities();
+            IEnumerable<Category> cacheValue = (IEnumerable<Category>)method.Invoke(cacheFieldValue,
+                new object[] { Thread.CurrentPrincipal.Identity.Name + " " + typeof(Category) });
+
+            //Assert
+            Assert.IsTrue(entities != null);
+            Assert.IsTrue(cacheValue != null);
+            Assert.IsTrue(cacheValue.Any());
         }
 
         [TestMethod]
         public void CategoriesUsingRedisCache()
         {
-            var entityManager = new EntitiesManager<Category>(new EntitiesRedisCache<Category>("localhost"));
+            //Arrange
+            var entityManager = new EntitiesManager<Category>(new RedisCache<IEnumerable<Category>>("localhost", cachePolicyService));
 
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(entityManager.GetEntities().Count());
-                Thread.Sleep(100);
-            }
+            FieldInfo cacheField = entityManager.GetType().GetField("cache", BindingFlags.NonPublic | BindingFlags.Instance);
+            object cacheFieldValue = cacheField.GetValue(entityManager);
+            MethodInfo method = cacheFieldValue.GetType().GetMethod("Get", new Type[] { typeof(string) });
+
+            //Act
+            var entities = entityManager.GetEntities();
+            IEnumerable<Category> cacheValue = (IEnumerable<Category>)method.Invoke(cacheFieldValue,
+                new object[] { Thread.CurrentPrincipal.Identity.Name + " " + typeof(Category) });
+
+            //Assert
+            Assert.IsTrue(entities != null);
+            Assert.IsTrue(cacheValue != null);
+            Assert.IsTrue(cacheValue.Any());
         }
 
         [TestMethod]
         public void CustomersUsingMemoryCache()
         {
-            var entityManager = new EntitiesManager<Customer>((new EntitiesMemoryCache<Customer>()));
+            //Arrange
+            var entityManager = new EntitiesManager<Customer>((new MemoryCache<IEnumerable<Customer>>(cachePolicyService)));
 
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(entityManager.GetEntities().Count());
-                Thread.Sleep(100);
-            }
+            FieldInfo cacheField = entityManager.GetType().GetField("cache", BindingFlags.NonPublic | BindingFlags.Instance);
+            object cacheFieldValue = cacheField.GetValue(entityManager);
+            MethodInfo method = cacheFieldValue.GetType().GetMethod("Get", new Type[] { typeof(string) });
+
+            //Act
+            var entities = entityManager.GetEntities();
+            IEnumerable<Customer> cacheValue = (IEnumerable<Customer>)method.Invoke(cacheFieldValue,
+                new object[] { Thread.CurrentPrincipal.Identity.Name + " " + typeof(Customer) });
+
+            //Assert
+            Assert.IsTrue(entities != null);
+            Assert.IsTrue(cacheValue != null);
+            Assert.IsTrue(cacheValue.Any());
         }
 
         [TestMethod]
         public void CustomersUsingRedisCache()
         {
-            var entityManager = new EntitiesManager<Customer>(new EntitiesRedisCache<Customer>("localhost"));
+            //Arrange
+            var entityManager = new EntitiesManager<Customer>(new RedisCache<IEnumerable<Customer>>("localhost", cachePolicyService));
 
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(entityManager.GetEntities().Count());
-                Thread.Sleep(100);
-            }
+            FieldInfo cacheField = entityManager.GetType().GetField("cache", BindingFlags.NonPublic | BindingFlags.Instance);
+            object cacheFieldValue = cacheField.GetValue(entityManager);
+            MethodInfo method = cacheFieldValue.GetType().GetMethod("Get", new Type[] { typeof(string) });
+
+            //Act
+            var entities = entityManager.GetEntities();
+            IEnumerable<Customer> cacheValue = (IEnumerable<Customer>)method.Invoke(cacheFieldValue,
+                new object[] { Thread.CurrentPrincipal.Identity.Name + " " + typeof(Customer) });
+
+            //Assert
+            Assert.IsTrue(entities != null);
+            Assert.IsTrue(cacheValue != null);
+            Assert.IsTrue(cacheValue.Any());
         }
 
+        //works for  <!--<add key="PolicyType" value="ExpirationTime" />-->
         [TestMethod]
         public void ExcpirationTimeTestInvalidation()
         {
-            var entitycache = new Mock<IEntitiesCache<Category>>();
-            var entityManager = new EntitiesManager<Category>(entitycache.Object);
+            //Arrange
+            var entityManager = new EntitiesManager<Category>(new MemoryCache<IEnumerable<Category>>(cachePolicyService));
 
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(entityManager.GetEntities().Count());
-                Thread.Sleep(100);
-            }
-            entitycache.Verify(
-                n => n.Set(It.IsAny<string>(), It.IsAny<IEnumerable<Category>>(), It.IsAny<DateTimeOffset>()), Times.AtLeast(2));
+            FieldInfo cacheField = entityManager.GetType().GetField("cache", BindingFlags.NonPublic | BindingFlags.Instance);
+            object cacheFieldValue = cacheField.GetValue(entityManager);
+            MethodInfo method = cacheFieldValue.GetType().GetMethod("Get", new Type[] { typeof(string) });
+            double interval = Convert.ToDouble(ConfigurationManager.AppSettings["TimeIntervalMilliseconds"]) + 1;
 
+            //Act
+            var entities = entityManager.GetEntities();
+            System.Threading.Thread.Sleep(Convert.ToInt32(interval));
+
+            IEnumerable<Category> cacheValue = (IEnumerable<Category>)method.Invoke(cacheFieldValue,
+                new object[] { Thread.CurrentPrincipal.Identity.Name + " " + typeof(Category) });
+
+            //Assert
+            Assert.IsTrue(entities != null);
+            Assert.IsTrue(cacheValue == null);
+        }
+
+        [TestMethod]
+        public void ExcpirationTimeTestValidation()
+        {
+            //Arrange
+            var entityManager = new EntitiesManager<Category>(new MemoryCache<IEnumerable<Category>>(cachePolicyService));
+
+            FieldInfo cacheField = entityManager.GetType().GetField("cache", BindingFlags.NonPublic | BindingFlags.Instance);
+            object cacheFieldValue = cacheField.GetValue(entityManager);
+            MethodInfo method = cacheFieldValue.GetType().GetMethod("Get", new Type[] { typeof(string) });
+            double interval = Convert.ToDouble(ConfigurationManager.AppSettings["TimeIntervalMilliseconds"]) - 200;
+
+            //Act
+            var entities = entityManager.GetEntities();
+            Thread.Sleep(Convert.ToInt32(interval));
+
+            IEnumerable<Category> cacheValue = (IEnumerable<Category>)method.Invoke(cacheFieldValue,
+                new object[] { Thread.CurrentPrincipal.Identity.Name + " " + typeof(Category) });
+
+            //Assert
+            Assert.IsTrue(entities != null);
+            Assert.IsTrue(cacheValue != null);
+            Assert.IsTrue(cacheValue.Any());
         }
 
         [TestMethod]
         public void CacheItemPolicy()
         {
-            var policy = new CacheItemPolicy();
-            policy.ChangeMonitors.Add(new SqlChangeMonitor(new System.Data.SqlClient.SqlDependency(new SqlCommand("Select * from Northwind.Category"))));
-            var entitycache = new Mock<IEntitiesCache<Category>>();
-            var entityManager = new EntitiesManager<Category>(entitycache.Object);
+            //Arrange
+            var entityManager = new EntitiesManager<Category>(new MemoryCache<IEnumerable<Category>>(cachePolicyService));
 
-            for (var i = 0; i < 10; i++)
+            FieldInfo cacheField = entityManager.GetType().GetField("cache", BindingFlags.NonPublic | BindingFlags.Instance);
+            object cacheFieldValue = cacheField.GetValue(entityManager);
+            MethodInfo method = cacheFieldValue.GetType().GetMethod("Get", new Type[] { typeof(string) });
+
+            //Act
+            var entities = entityManager.GetEntities();
+            using (var dbContext = new Northwind())
             {
-                Console.WriteLine(entityManager.GetEntities().Count());
-                Thread.Sleep(1000);
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                dbContext.Configuration.ProxyCreationEnabled = false;
+                dbContext.Categories.Add(new Category { CategoryName = "Milk products" });
+                dbContext.SaveChanges();
             }
-            entitycache.Verify(
-                n => n.Set(It.IsAny<string>(), It.IsAny<IEnumerable<Category>>(), It.IsAny<DateTimeOffset>()), Times.AtLeast(2));
+            Thread.Sleep(3000);
+            IEnumerable<Category> cacheValue = (IEnumerable<Category>)method.Invoke(cacheFieldValue,
+                new object[] { Thread.CurrentPrincipal.Identity.Name + " " + typeof(Category) });
 
+            //Assert
+            Assert.IsTrue(entities != null);
+            Assert.IsTrue(cacheValue == null);
         }
     }
 }

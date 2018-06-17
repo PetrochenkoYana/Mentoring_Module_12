@@ -7,4 +7,3 @@ C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Applicat
 C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\obj\Debug\NorthwindLibrary.dll
 C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\obj\Debug\NorthwindLibrary.pdb
-C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\Application\NorthwindLibrary\obj\Debug\NorthwindLibrary.csprojResolveAssemblyReference.cache

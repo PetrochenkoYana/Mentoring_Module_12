@@ -1,18 +1,25 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
+using CacheLibrary;
 using Fibonacci__Sequence;
+using CachePolicyService;
 
 namespace Fibonacci__Sequence_Tests
 {
     [TestClass]
     public class Test
     {
+        private ICachePolicyService cachePolicyService;
+
+        [TestInitialize]
+        public void GetCachePolicy()
+        {
+            cachePolicyService = new CachePolicyService.CachePolicyService();
+        }
         [TestMethod]
         public void MemoryCache()
         {
-            var fibonacci = new Fibonacci(new MemoryCache());
+            var fibonacci = new Fibonacci(new MemoryCache<int>(cachePolicyService));
 
             var number1 = fibonacci.GetByIndex(5);
             var number2 = fibonacci.GetByIndex(6);
@@ -25,7 +32,7 @@ namespace Fibonacci__Sequence_Tests
         [TestMethod]
         public void RedisCache()
         {
-            var fibonacci = new Fibonacci(new RedisCache("localhost"));
+            var fibonacci = new Fibonacci(new RedisCache<int>("localhost", cachePolicyService));
 
             var number1 = fibonacci.GetByIndex(5);
             var number2 = fibonacci.GetByIndex(6);

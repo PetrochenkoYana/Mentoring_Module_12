@@ -56,14 +56,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fibonacci_.cs" />
-    <Compile Include="ICache.cs" />
-    <Compile Include="MemoryCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RedisCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CacheLibrary\CacheLibrary.csproj">
+      <Project>{AA1ADCD1-9681-4BC8-8BB9-BA70B4644418}</Project>
+      <Name>CacheLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CachePolicyService\CachePolicyService.csproj">
+      <Project>{A63E60EF-AD75-422C-AE36-72B6009EAAF8}</Project>
+      <Name>CachePolicyService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

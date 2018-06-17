@@ -1,0 +1,11 @@
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\bin\Debug\CacheLibrary.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\bin\Debug\CacheLibrary.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\bin\Debug\CachePolicyService.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\bin\Debug\StackExchange.Redis.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\bin\Debug\StackExchange.Redis.Extensions.Core.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\bin\Debug\CachePolicyService.pdb
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\bin\Debug\StackExchange.Redis.xml
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\bin\Debug\StackExchange.Redis.Extensions.Core.xml
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\obj\Debug\CacheLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\obj\Debug\CacheLibrary.dll
+C:\Users\Yana_Petrachenka\Documents\Visual Studio 2015\Projects\Samples\CacheLibrary\obj\Debug\CacheLibrary.pdb

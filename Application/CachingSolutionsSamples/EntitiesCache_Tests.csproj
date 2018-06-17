@@ -65,6 +65,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.XML" />
@@ -83,15 +85,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="EntitiesCacheTests.cs" />
-    <Compile Include="EntitiesMemoryCache.cs" />
-    <Compile Include="EntitiesRedisCache.cs" />
-    <Compile Include="SampleClasses\CategoriesManager.cs" />
-    <Compile Include="SampleClasses\CategoriesMemoryCache.cs" />
-    <Compile Include="SampleClasses\CategoriesRedisCache.cs" />
-    <Compile Include="EntitiesManager.cs" />
-    <Compile Include="SampleClasses\ICategoriesCache.cs" />
-    <Compile Include="SampleClasses\CacheTests.cs" />
-    <Compile Include="IEntitiesCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +92,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CacheLibrary\CacheLibrary.csproj">
+      <Project>{AA1ADCD1-9681-4BC8-8BB9-BA70B4644418}</Project>
+      <Name>CacheLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CachePolicyService\CachePolicyService.csproj">
+      <Project>{A63E60EF-AD75-422C-AE36-72B6009EAAF8}</Project>
+      <Name>CachePolicyService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EntitiesCache\EntitiesCache.csproj">
+      <Project>{C8F6A6B9-B64C-4590-9707-DA43A769D072}</Project>
+      <Name>EntitiesCache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Fibonacci__Sequence\Fibonacci__Sequence.csproj">
       <Project>{A7A12FB9-6B11-48CB-B333-5A9469904A98}</Project>
       <Name>Fibonacci__Sequence</Name>
